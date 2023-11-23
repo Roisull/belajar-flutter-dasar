@@ -113,10 +113,21 @@ class FirstScreen extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Container(
-            color: Colors.blue,
+            decoration:  BoxDecoration(
+              color: Colors.red,
+              shape: BoxShape.circle,
+              border: Border.all(color: Colors.green, width: 3),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black,
+                  offset: Offset(3, 6),
+                  blurRadius: 10,
+                ),
+              ],
+            ),
             // width: 200,
             // height: 100,
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(20),
             margin: const EdgeInsets.all(10),
             child: const Text(
               'Hi',
