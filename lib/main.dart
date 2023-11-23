@@ -15,14 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Scaffold(
-        body: Align(
-          alignment: Alignment.center,
-          child: BiggerText(
-            text: "Hallo ngab",
-          ),
-        ),
-      ),
+      home: const FirstScreen(),
     );
   }
 }
@@ -88,6 +81,38 @@ class _BiggerTextState extends State<BiggerText> {
           },
         )
       ],
+    );
+  }
+}
+
+class FirstScreen extends StatelessWidget {
+  const FirstScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('First Screen'),
+        actions: <Widget>[
+          IconButton(
+            onPressed: (){}, 
+            icon: const Icon(
+              Icons.search,
+              color: Colors.black,
+            )
+          )
+        ],
+        leading: IconButton(
+          icon: const Icon(
+            Icons.menu,
+            color: Colors.black,
+          ),
+          onPressed: (){},
+        ),
+      ),
+      body: const Center(
+        child: Text('Hello Bang'),
+      ),
     );
   }
 }
