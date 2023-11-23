@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +16,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const Scaffold(
-        body: Center(
-          child: Heading(
+        body: Align(
+          alignment: Alignment.center,
+          child: BiggerText(
             text: "Hallo ngab",
           ),
         ),
@@ -27,7 +30,7 @@ class MyApp extends StatelessWidget {
 class Heading extends StatelessWidget {
 
   final String text;
-  const Heading({Key? key, required this.text}) : super(key: key);
+  const Heading({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +48,7 @@ class BiggerText extends StatefulWidget {
 
   final String text;
 
-  const BiggerText({Key? key, required this.text}) : super(key: key);
+  const BiggerText({super.key, required this.text});
 
   @override
   State<BiggerText> createState() => _BiggerTextState();
@@ -58,6 +61,7 @@ class _BiggerTextState extends State<BiggerText> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text(
           widget.text,
@@ -71,6 +75,15 @@ class _BiggerTextState extends State<BiggerText> {
           onPressed: (){
             setState(() {
               _textSize = 32.0;
+            });
+          },
+        ),
+        ElevatedButton(
+          child: const Text("Perkecil"),
+
+          onPressed: (){
+            setState(() {
+              _textSize = 16.0;
             });
           },
         )
