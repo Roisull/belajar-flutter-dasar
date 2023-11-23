@@ -110,8 +110,20 @@ class FirstScreen extends StatelessWidget {
           onPressed: (){},
         ),
       ),
-      body: const Center(
-        child: Text('Hello Bang'),
+      body: Column(
+        children: <Widget>[
+          Container(
+            color: Colors.blue,
+            // width: 200,
+            // height: 100,
+            padding: const EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
+            child: const Text(
+              'Hi',
+              style: TextStyle(fontSize: 40),
+            ),
+          ),
+        ],
       ),
     );
   }
