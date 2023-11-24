@@ -85,9 +85,16 @@ class _BiggerTextState extends State<BiggerText> {
   }
 }
 
-class FirstScreen extends StatelessWidget {
+class FirstScreen extends StatefulWidget {
   const FirstScreen({super.key});
 
+  @override
+  State<FirstScreen> createState() => _FirstScreenState();
+}
+
+class _FirstScreenState extends State<FirstScreen> {
+  String? language;
+  String _name = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -176,6 +183,76 @@ class FirstScreen extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
+          ),
+          TextButton(
+            onPressed: (){
+              // disini tempat untuk menuliskan aksi ketika button di pencet
+            }, 
+            child: const Text('Text Button')
+          ),
+          OutlinedButton(
+            onPressed: (){
+              // disini tempat untuk menuliskan aksi ketika button di pencet
+            }, 
+            child: const Text('Outlined Button')
+          ),
+          IconButton(
+            icon: const Icon(Icons.volume_up),
+            onPressed: (){
+              // disini tempat untuk menuliskan aksi ketika button di pencet
+            }, 
+            tooltip: 'Increase volume by 10',
+          ),
+          DropdownButton<String>(
+            items: const <DropdownMenuItem<String>>[
+              DropdownMenuItem<String>(
+                value: 'Dart',
+                child: Text('dart')
+              ),
+              DropdownMenuItem<String>(
+                value: 'Kotlin',
+                child: Text('Kotlin')
+              ),
+              DropdownMenuItem<String>(
+                value: 'Swift',
+                child: Text('Swift')
+              ),
+            ],
+            value: language,
+            hint: const Text('Select Language'), 
+            onChanged: (String? value) { 
+              setState((){
+                language = value;
+              });
+            },
+          ),
+          Column(
+            children: [
+              TextField(
+                decoration: const InputDecoration(
+                  hintText: 'write your name here ...',
+                  labelText: 'Name : '
+                ),
+                onChanged: (String value){
+                  setState(() {
+                    _name = value;
+                  });
+                },
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                child: const Text('Submit'),
+                onPressed: (){
+                  showDialog(
+                    context: context, 
+                    builder: (context){
+                      return AlertDialog(
+                        content: Text('Hello, $_name'),
+                      );
+                  });
+                }, 
+              )
+            ],
           ),
         ],
       ),
