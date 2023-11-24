@@ -95,6 +95,7 @@ class FirstScreen extends StatefulWidget {
 class _FirstScreenState extends State<FirstScreen> {
   String? language;
   String _name = '';
+  bool lightOn = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -226,33 +227,51 @@ class _FirstScreenState extends State<FirstScreen> {
               });
             },
           ),
-          Column(
-            children: [
-              TextField(
-                decoration: const InputDecoration(
-                  hintText: 'write your name here ...',
-                  labelText: 'Name : '
+          Container(
+            padding: const EdgeInsets.only(left: 24.0, right: 24.0),
+            child: Column(
+              children: [
+                TextField(
+                  decoration: const InputDecoration(
+                    hintText: 'write your name here ...',
+                    labelText: 'Name : '
+                  ),
+                  onChanged: (String value){
+                    setState(() {
+                      _name = value;
+                    });
+                  },
                 ),
-                onChanged: (String value){
-                  setState(() {
-                    _name = value;
-                  });
-                },
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                child: const Text('Submit'),
-                onPressed: (){
-                  showDialog(
-                    context: context, 
-                    builder: (context){
-                      return AlertDialog(
-                        content: Text('Hello, $_name'),
-                      );
-                  });
-                }, 
-              )
-            ],
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  child: const Text('Submit'),
+                  onPressed: (){
+                    showDialog(
+                      context: context, 
+                      builder: (context){
+                        return AlertDialog(
+                          content: Text('Hello, $_name'),
+                        );
+                    });
+                  }, 
+                )
+              ],
+            ),
+          ),
+          Switch(
+            value: lightOn, 
+            onChanged: (bool value){
+              setState(() {
+                lightOn = value;
+              });
+
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(lightOn ? 'light on' : 'light off'),
+                  duration: const Duration(seconds: 1),
+                ),
+              );
+            },
           ),
         ],
       ),
