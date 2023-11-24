@@ -111,6 +111,7 @@ class FirstScreen extends StatelessWidget {
         ),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
             decoration:  BoxDecoration(
@@ -132,6 +133,48 @@ class FirstScreen extends StatelessWidget {
             child: const Text(
               'Hi',
               style: TextStyle(fontSize: 40),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              IconButton(
+                onPressed: (){
+
+                }, 
+                icon: const Icon(Icons.thumb_up)
+              ),
+              IconButton(
+                onPressed: (){
+
+                }, 
+                icon: const Icon(Icons.share)
+              ),
+              IconButton(
+                onPressed: (){
+
+                }, 
+                icon: const Icon(Icons.comment)
+              ),
+            ],
+          ),
+          Container(
+            margin: const EdgeInsets.all(10),
+            child: const Text(
+              'coba menambah coloumn',
+              style: TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold
+              ),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 30.0),
+            child: const Text(
+              'coba menambah coloumn',
+              style: TextStyle(
+                fontSize: 20,
+              ),
             ),
           ),
         ],
