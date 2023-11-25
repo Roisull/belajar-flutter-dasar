@@ -90,6 +90,37 @@ class _SecondScreenState extends State<SecondScreen> {
               ),
             ],
           ),
+          Container(
+            margin: const EdgeInsets.only(top: 20.0),
+            child: const Column(
+              children: [
+                Text(
+                  'Ini Font Roboto Bold',
+                  style: TextStyle(
+                    fontFamily: 'RobotoMono',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24,
+                  ),
+                ),
+                Text(
+                  'Ini Roboto Italic',
+                  style: TextStyle(
+                    fontFamily: 'RobotoMono',
+                    fontStyle: FontStyle.italic,
+                    fontSize: 24,
+                  ),
+                ),
+                Text(
+                  'Ini Font Roboto Thin',
+                  style: TextStyle(
+                    fontFamily: 'RobotoMono',
+                    fontWeight: FontWeight.w100,
+                    fontSize: 24,
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
