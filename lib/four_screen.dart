@@ -14,7 +14,58 @@ class _FourScreenState extends State<FourScreen> {
       appBar: AppBar(
         title: const Text('Four Screen'),
       ),
-      // body: ,
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: Container(
+              color: Colors.red,
+            ),
+          ),
+          Expanded(
+            child: Container(
+              color: const Color.fromARGB(255, 124, 244, 54),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              color: const Color.fromARGB(255, 127, 54, 244),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              color: const Color.fromARGB(255, 54, 184, 244),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Container(
+              color: const Color.fromARGB(255, 216, 244, 54),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              color: const Color.fromARGB(255, 82, 54, 244),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              color: const Color.fromARGB(255, 98, 244, 54),
+            ),
+          ),
+          Expanded(
+            child: Center(
+              child: Container(
+                margin: const EdgeInsets.all(10),
+                child: OutlinedButton(
+                  onPressed: (){
+                    
+                  }, 
+                  child: const Text('Go to Five Screen')),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
