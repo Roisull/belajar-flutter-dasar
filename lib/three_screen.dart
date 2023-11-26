@@ -9,7 +9,6 @@ class ThreeScreen extends StatefulWidget {
 }
 
 class _ThreeScreenState extends State<ThreeScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,8 +20,7 @@ class _ThreeScreenState extends State<ThreeScreen> {
           Container(
             height: 250,
             decoration: BoxDecoration(
-                color: Colors.blue,
-                border: Border.all(color: Colors.black)),
+                color: Colors.blue, border: Border.all(color: Colors.black)),
             child: const Center(
               child: Text(
                 '1',
@@ -33,8 +31,7 @@ class _ThreeScreenState extends State<ThreeScreen> {
           Container(
             height: 250,
             decoration: BoxDecoration(
-                color: Colors.green,
-                border: Border.all(color: Colors.black)),
+                color: Colors.green, border: Border.all(color: Colors.black)),
             child: const Center(
               child: Text(
                 '2',
@@ -45,8 +42,7 @@ class _ThreeScreenState extends State<ThreeScreen> {
           Container(
             height: 250,
             decoration: BoxDecoration(
-                color: Colors.yellow,
-                border: Border.all(color: Colors.black)),
+                color: Colors.yellow, border: Border.all(color: Colors.black)),
             child: const Center(
               child: Text(
                 '3',
@@ -57,8 +53,7 @@ class _ThreeScreenState extends State<ThreeScreen> {
           Container(
             height: 250,
             decoration: BoxDecoration(
-                color: Colors.blue,
-                border: Border.all(color: Colors.black)),
+                color: Colors.blue, border: Border.all(color: Colors.black)),
             child: const Center(
               child: Text(
                 '4',
@@ -69,8 +64,7 @@ class _ThreeScreenState extends State<ThreeScreen> {
           Container(
             height: 250,
             decoration: BoxDecoration(
-                color: Colors.green,
-                border: Border.all(color: Colors.black)),
+                color: Colors.green, border: Border.all(color: Colors.black)),
             child: const Center(
               child: Text(
                 '5',
@@ -81,8 +75,7 @@ class _ThreeScreenState extends State<ThreeScreen> {
           Container(
             height: 250,
             decoration: BoxDecoration(
-                color: Colors.yellow,
-                border: Border.all(color: Colors.black)),
+                color: Colors.yellow, border: Border.all(color: Colors.black)),
             child: const Center(
               child: Text(
                 '6',
@@ -94,26 +87,29 @@ class _ThreeScreenState extends State<ThreeScreen> {
             child: Container(
               padding: const EdgeInsets.all(20.0),
               child: OutlinedButton(
-                onPressed: (){
+                onPressed: () {
                   Navigator.push(
-                context,
-                PageRouteBuilder(
-                  pageBuilder: (context, animation, secondaryAnimation) => const FourScreen(),
-                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                    const begin = 0.0;
-                    const end = 1.0;
-                    const curve = Curves.easeInOut;
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          const FourScreen(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        const begin = 0.0;
+                        const end = 1.0;
+                        const curve = Curves.easeInOut;
 
-                    var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                    var scaleAnimation = animation.drive(tween);
+                        var tween = Tween(begin: begin, end: end)
+                            .chain(CurveTween(curve: curve));
+                        var scaleAnimation = animation.drive(tween);
 
-                    return ScaleTransition(
-                      scale: scaleAnimation,
-                      child: child,
-                    );
-                  },
-                ),
-              );
+                        return ScaleTransition(
+                          scale: scaleAnimation,
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
                 },
                 child: const Text('Go to Four Screen'),
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dasar_id_camp/five_screen.dart';
 
 class FourScreen extends StatefulWidget {
   const FourScreen({super.key});
@@ -57,10 +58,32 @@ class _FourScreenState extends State<FourScreen> {
               child: Container(
                 margin: const EdgeInsets.all(10),
                 child: OutlinedButton(
-                  onPressed: (){
-                    
-                  }, 
-                  child: const Text('Go to Five Screen')),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  const FiveScreen(),
+                          transitionsBuilder:
+                              (context, animation, secondaryAnimation, child) {
+                            const begin = 0.0;
+                            const end = 1.0;
+                            const curve = Curves.easeInOut;
+
+                            var tween = Tween(begin: begin, end: end)
+                                .chain(CurveTween(curve: curve));
+                            var opacityAnimation = animation.drive(tween);
+
+                            return FadeTransition(
+                              opacity: opacityAnimation,
+                              child: child,
+                            );
+                          },
+                        ),
+                      );
+                    },
+                    child: const Text('Go to Five Screen')),
               ),
             ),
           ),
