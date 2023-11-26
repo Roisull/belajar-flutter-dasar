@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dasar_id_camp/three_screen.dart';
 
 class SecondScreen extends StatefulWidget {
   const SecondScreen({super.key});
@@ -61,7 +62,7 @@ class _SecondScreenState extends State<SecondScreen> {
           ListTile(
             leading: Checkbox(
               value: agree,
-              onChanged: (bool? value){
+              onChanged: (bool? value) {
                 setState(() {
                   agree = value!;
                 });
@@ -74,9 +75,9 @@ class _SecondScreenState extends State<SecondScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Image.network(
-                    'https://picsum.photos/200/300',
-                    width: 100,
-                    height: 100,
+                'https://picsum.photos/200/300',
+                width: 100,
+                height: 100,
               ),
               Image.asset(
                 'assets/images/logo_pezy.png',
@@ -121,17 +122,46 @@ class _SecondScreenState extends State<SecondScreen> {
               ],
             ),
           ),
+          Center(
+            child: Container(
+              padding: const EdgeInsets.all(20.0),
+              child: OutlinedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            const ThreeScreen(),
+                        transitionsBuilder:
+                            (context, animation, secondaryAnimation, child) {
+                          const begin = Offset(0.0, 1.0);
+                          const end = Offset.zero;
+                          const curve = Curves.easeInOut;
+
+                          var tween = Tween(begin: begin, end: end)
+                              .chain(CurveTween(curve: curve));
+                          var offsetAnimation = animation.drive(tween);
+
+                          return SlideTransition(
+                            position: offsetAnimation,
+                            child: child,
+                          );
+                        },
+                      ),);
+                },
+                child: const Text('Go to Three Screen'),
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
 
   void showSnackBar() {
-    ScaffoldMessenger.of(context)
-        .showSnackBar(
-          SnackBar(
-            content: Text('$language selected'),
-            duration: const Duration(seconds: 1),
-          ));
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text('$language selected'),
+      duration: const Duration(seconds: 1),
+    ));
   }
 }
