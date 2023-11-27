@@ -226,7 +226,7 @@ class _FirstScreenState extends State<FirstScreen> {
           Container(
             padding: const EdgeInsets.only(left: 24.0, right: 24.0),
             child: Column(
-              children: [
+              children: <Widget>[
                 TextField(
                   decoration: const InputDecoration(
                       hintText: 'write your name here ...',
